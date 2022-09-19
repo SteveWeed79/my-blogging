@@ -296,6 +296,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+package-lock.json
+
 .env
+
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,node,visualstudiocode
