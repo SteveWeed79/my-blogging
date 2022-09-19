@@ -16,7 +16,7 @@ Blog.init(
             allowNull: false,
         },
         blog_text: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true,
         },
         user_id: {
@@ -29,6 +29,7 @@ Blog.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
+        timestamps: true,
         modelName: 'blog',
     }
 );
