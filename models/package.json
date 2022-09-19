@@ -1,6 +1,6 @@
 {
   "name": "my-blogging",
-  "version": "1.0.0",
+  "version": "1.0.01",
   "description": "",
   "main": "server.js",
   "scripts": {
