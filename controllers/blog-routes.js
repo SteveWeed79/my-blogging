@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Blog = require("../models/Blog");
-const Dish = require("../models/Blog");
+const User = require("../models/User");
+const Comment = require("../models/Comments");
 
 router.get("/", async (req, res) => {
   try {
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
     });
 
     const blogs = blogsAll.map((blog) => blog.get({ plain: true }));
-    res.render("homepage", {
+    res.render("all", {
       blogs,
     });
   } catch (err) {
@@ -25,13 +26,13 @@ router.get("/", async (req, res) => {
 // route to get one dish
 router.get("/blog/:id", async (req, res) => {
   try {
-    const dishData = await Dish.findByPk(req.params.id);
-    if (!dishData) {
-      res.status(404).json({ message: "No dish with this id!" });
+    const blogData = await Blog.findByPk(req.params.id);
+    if (!blogData) {
+      res.status(404).json({ message: "No blog with this id!" });
       return;
     }
-    const dish = dishData.get({ plain: true });
-    res.render("dish", dish);
+    const blog = blogData.get({ plain: true });
+    res.render("blog", blog);
   } catch (err) {
     res.status(500).json(err);
   }
